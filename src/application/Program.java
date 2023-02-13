@@ -4,8 +4,7 @@ import model.dao.DaoFactory;
 import model.dao.SellerDao;
 import model.entites.Department;
 import model.entites.Seller;
-
-import java.time.LocalDate;
+import java.util.List;
 
 public class Program {
     public static void main(String[] args) {
@@ -15,5 +14,10 @@ public class Program {
         System.out.println("=== TEST 1: seller findById ====");
         Seller seller = sellerDao.findById(3);
         System.out.println(seller);
+
+        System.out.println("\n=== TEST 2: seller findByDepartment ====");
+        Department department = new Department(2, null);
+        List<Seller> list = sellerDao.findByDerpartment(department);
+        list.forEach(System.out::println);
     }
 }
